@@ -363,3 +363,78 @@ padding: 15px 43px;
     letter-spacing: 0.06em;
     color: #545454;
 }
+
+.in__addition {
+    background: #F6F6F6;
+}
+
+.in__addition__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.in__addition__description {
+    max-width: 380px;
+}
+
+.in__addition__title {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.in__addition__card_information__subtitle {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #545454;
+}
+
+.in__addition__cart_information__number {
+    margin: 20px 0;
+}
+
+.in__addition__cart_information__number a {
+    display: inline-block;
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #545454;
+    padding: 10px 15px 10px 60px;
+    background: #F1CDB3;
+    border-radius: 9px;
+    background-image: url(../../assets/svg/in_addition-icon-credit-card.svg);
+    background-repeat: no-repeat;
+    background-position: 15px 10px;
+}
+
+.in__addition__cart_information__number a:hover {
+    background-color: #FDDCC4;
+}
+
+.in__addition__cart_information__additionally {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #B2B2B2;
+}
+
+.footer {
+    background: url(../../assets/images/app__hat_noise_transparent.png),radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.footer__wrapper {
+    background: url(../../assets/images/footer-puppy.png) bottom right no-repeat
+}
+
+.footer__contacts {
+    height: 234px;
+    padding-top: 56px;
+    padding-bottom: 60px;
+}
