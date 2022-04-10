@@ -83,7 +83,7 @@ body {
     font-family: 'Georgia';
     font-weight: 400;
     font-size: 35px;
-    line-height: 124%;
+    line-height: 129%;
     letter-spacing: 0.06em;
     color: #545454;
 }
@@ -130,6 +130,7 @@ body {
     font-size: 32px;
     line-height: 30px;
     letter-spacing: 0.06em;
+    padding-top: 4px;
 }
 
 .header__logo .header__logo__title a{
@@ -164,7 +165,7 @@ body {
 }
 
 .header__nav__item:not(:last-child) {
-    margin-right: 35px;
+    margin-right: 36px;
 }
 
 .header__nav__item a.active {
@@ -218,7 +219,11 @@ body {
 
 .about__title {
     max-width: 370px;
-    margin-bottom: 25px;
+    margin-bottom: 26px;
+}
+
+.about__background {
+    max-height: 408px;
 }
 
 .about__description p{
@@ -310,7 +315,7 @@ body {
     font-family: 'Georgia';
     font-weight: 400;
     font-size: 20px;
-    line-height: 23px;
+    line-height: 21px;
     letter-spacing: 0.06em;
     color: #545454;
 }
@@ -318,8 +323,7 @@ body {
 .our__friends__petscards__item__button a {
     background: transparent;
     border: 2px solid #F1CDB3;
-    
-padding: 15px 43px;
+    padding: 13px 42px;
 }
 
 .our__friends__petscards__item:hover a {
@@ -344,7 +348,7 @@ padding: 15px 43px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 55px 120px;
+    gap: 54px 120px;
 }
 
 .help__thing {
@@ -366,6 +370,7 @@ padding: 15px 43px;
 
 .in__addition {
     background: #F6F6F6;
+    padding-bottom: 101px;
 }
 
 .in__addition__wrapper {
@@ -373,6 +378,10 @@ padding: 15px 43px;
     justify-content: center;
     align-items: center;
     gap: 30px;
+}
+
+.in__addition__background {
+    height: 260px;
 }
 
 .in__addition__description {
@@ -439,7 +448,7 @@ padding: 15px 43px;
 }
 
 .footer__contacts {
-    max-width: 278px;
+    max-width: 280px;
 }
 
 .footer__contacts,
@@ -455,7 +464,7 @@ padding: 15px 43px;
     font-weight: 400;
     font-size: 35px;
     line-height: 130%;
-    letter-spacing: 0.058em;
+    letter-spacing: 0.06em;
     color: #FFFFFF;
 }
 
@@ -483,13 +492,18 @@ padding: 15px 43px;
     min-height: 32px;
 }
 
+.footer__contacts__item:hover,
+.footer__address__item:hover {
+    opacity: 0.8;
+}
+
 .footer__contacts__email {
-    padding-left: 64px;
+    padding-left: 60px;
     background: url(../../assets/svg/footer_contacts_icon-email.svg) left center no-repeat;
 }
 
 .footer__contacts__phonenumber {
-    padding-left: 64px;
+    padding-left: 60px;
     background: url(../../assets/svg/footer_contacts_icon-phone.svg) left center no-repeat;
 }
 
@@ -498,7 +512,7 @@ padding: 15px 43px;
 }
 
 .footer__address__name {
-    padding-left: 44px;
+    padding-left: 40px;
     background: url(../../assets/svg/footer_address_icon-marker.svg) left center no-repeat;
 }
 
