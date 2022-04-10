@@ -417,7 +417,7 @@ padding: 15px 43px;
     background-color: #FDDCC4;
 }
 
-.in__addition__cart_information__additionally {
+.in__addition__cart_information__supplement {
     font-style: italic;
     font-weight: 400;
     font-size: 12px;
@@ -430,11 +430,78 @@ padding: 15px 43px;
 }
 
 .footer__wrapper {
-    background: url(../../assets/images/footer-puppy.png) bottom right no-repeat
-}
-
-.footer__contacts {
     height: 234px;
     padding-top: 56px;
     padding-bottom: 60px;
+    background: url(../../assets/images/footer-puppy.png) bottom right no-repeat;
+    display: flex;
+    gap: 160px;
+}
+
+.footer__contacts {
+    max-width: 278px;
+}
+
+.footer__contacts,
+.footer__address {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__contacts__title,
+.footer__address__title {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.058em;
+    color: #FFFFFF;
+}
+
+.footer__contacts__items,
+.footer__address__items {
+    min-height: 104px;
+    list-style: none;
+}
+
+.footer__contacts__item:first-child {
+    margin: 40px 0;
+}
+
+.footer__contacts__item a,
+.footer__address__item a{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #F1CDB3;
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+}
+
+.footer__contacts__email {
+    padding-left: 64px;
+    background: url(../../assets/svg/footer_contacts_icon-email.svg) left center no-repeat;
+}
+
+.footer__contacts__phonenumber {
+    padding-left: 64px;
+    background: url(../../assets/svg/footer_contacts_icon-phone.svg) left center no-repeat;
+}
+
+.footer__address {
+    max-width: 302px;
+}
+
+.footer__address__name {
+    padding-left: 44px;
+    background: url(../../assets/svg/footer_address_icon-marker.svg) left center no-repeat;
+}
+
+.footer__address__item:first-child {
+    margin: 34px 0 32px 0;
 }
