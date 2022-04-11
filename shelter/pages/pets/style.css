@@ -95,6 +95,14 @@ body {
 
 .main {
     flex: 1 0 auto;
+    background: #F6F6F6;
+}
+
+.header {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+
 }
 
 .header__wrapper {
@@ -160,10 +168,6 @@ body {
 .header__nav__item a.active {
     color: #292929;
     border-bottom: 3px solid #F1CDB3;
-}
-
-.our_friends {
-    background: #F6F6F6;
 }
 
 .our_friends__wrapper {
