@@ -177,8 +177,9 @@ body {
     text-align: center;
 }
 
-.our__friends__petscards__item__image img {
-    border-radius: 9px 9px 0px 0px;
+.our__friends__petscards__item__image img{
+    min-height: 270px;
+    border-radius: 9px 9px 0 0;
 }
 
 .our_friends__content {
@@ -257,6 +258,57 @@ body {
 .our__friends__petscards__item:hover a {
     background-color: #FDDCC4;
     border: 2px solid #FDDCC4;
+}
+
+.our__friends__pagination {
+    display: flex;
+    gap: 20px;
+}
+
+.app__pagination__btns,
+.our__friends__pagination__counter {
+    outline: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    box-sizing: border-box;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.our__friends__pagination__counter.active {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #292929;
+    background: #F1CDB3;
+}
+
+.app__pagination__btns.active:hover {
+    border: 2px solid #FDDCC4;
+    background: #FDDCC4;
+}
+
+.our__friends__pagination-start:disabled, 
+.our__friends__pagination-prev:disabled {
+    border: 2px solid #CDCDCD;
+}
+
+.our__friends__pagination-start:disabled img,
+.our__friends__pagination-prev:disabled img {
+    opacity: 0.4;
+}
+
+.our__friends__pagination-start,
+.our__friends__pagination-prev {
+    transform: rotate(180deg);
 }
 
 .footer {

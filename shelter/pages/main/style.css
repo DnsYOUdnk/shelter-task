@@ -307,6 +307,11 @@ body {
     margin-bottom: 28px;
 }
 
+.our__friends__petscards__item__image img{
+    min-height: 270px;
+    border-radius: 9px 9px 0 0;
+}
+
 .our__friends__petscards__item__button {
     margin: 30px 0;
 }
