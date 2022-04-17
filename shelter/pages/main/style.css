@@ -47,7 +47,7 @@ body {
 }
 
 .container {
-    width: 1280px;
+    width: 100%;
     max-width: 1280px;
     padding: 0 40px;
     margin: 0 auto;
@@ -213,14 +213,14 @@ body {
     align-items: center;
 }
 
-.about__description {
-    max-width: 430px;
-    margin-left: 120px;
-}
-
 .about__title {
     max-width: 370px;
     margin-bottom: 26px;
+}
+
+.about__description {
+    max-width: 430px;
+    margin-left: 120px;
 }
 
 .about__background {
