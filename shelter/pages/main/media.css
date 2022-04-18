@@ -83,7 +83,7 @@
     }
 }
 
-@media screen and (max-width: 332px) {
+@media screen and (max-width: 326px) {
 
     .app__section {
         padding: 42px 0;
@@ -113,7 +113,7 @@
 
     .header__btn-burger {
         display: flex;
-        margin-right: 53px;
+        margin-right: 43px;
     }
 
     .header__nav__items {
@@ -158,6 +158,7 @@
 
     .not__only__wrapper {
         min-height: 673px;
+        background-size: 87%;
     }
 
     .not__only__content {
@@ -168,11 +169,12 @@
 
     .not__only__title h2 {
         font-size: 25px;
+        letter-spacing: 0.06em;
         max-width: 200px;
     }
 
     .about__wrapper {
-        gap: 42px;
+        gap: 36px;
     }
 
     .about__title {
@@ -182,13 +184,17 @@
         max-width: 250px;
     }
 
+    .about__description {
+        margin-left: 0;
+    }
+
     .about__description p {
         text-align: justify;
         max-width: 272px;
     }
 
-    .about__description {
-        margin-left: 0;
+    .about__description p:not(:last-child) {
+        margin-bottom: 22px;
     }
 
     .about__background img {
@@ -216,12 +222,12 @@
     }
 
     .help__things {
-        gap: 30px;
+        gap: 30px 18px;
         justify-content: space-between;
     }
 
     .help__thing {
-        width: 130px;
+        width: 140px;
         height: 87px;
     }
 
@@ -238,12 +244,12 @@
     }
 
     .in__addition__wrapper {
-        gap: 42px;
+        gap: 39px;
     }
 
     .in__addition__title {
         max-width: 220px;
-        margin: 0 auto 20px;
+        margin: 0 auto 22px;
     }
 
     .in__addition__card_information__subtitle {
@@ -251,9 +257,13 @@
         text-align: center;
     }
 
+    .in__addition__cart_information__number {
+        margin: 23px 0 20px;
+    }
+
     .in__addition__cart_information__number a {
         font-size: 15px;
-        padding: 13px 15px 13px 60px;
+        padding: 14px 15px 13px 60px;
         margin-left: 9px;
     }
 
@@ -276,6 +286,7 @@
         justify-content: start;
         align-items: center;
         gap: 40px;
+        background-size: 87%;
     }
     
     .footer__contacts,
@@ -290,7 +301,8 @@
     .footer__contacts__title, .footer__address__title {
         font-size: 25px;
         text-align: center;
-        letter-spacing: 0.08em;
+        max-width: 240px;
+        line-height: 128%;
     }
 
     .footer__contacts__items {
@@ -306,4 +318,14 @@
         list-style: none;
     }
 
+    .footer__address__item:first-child {
+        margin: 40px 0 39px 0;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .help__things {
+        gap: 30px 14px;
+    }
 }
