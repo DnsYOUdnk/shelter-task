@@ -17,5 +17,3 @@ const navLinks = document.querySelectorAll('.header__nav__item .app__links');
                 // logo.classList.toggle('openMenu');
             })
         })
-
-alert('Всем привет, работа незавершена, пожалуйста если есть возможность проверьте ее завтра, очень сильно благодарен за понимание')
