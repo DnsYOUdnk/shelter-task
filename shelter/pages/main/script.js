@@ -5,7 +5,7 @@ const logo = document.querySelector('.header__logo');
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('open');
             navMenu.classList.toggle('openMenu');
-            logo.classList.toggle('openMenu');
+            // logo.classList.toggle('openMenu');
         });
 
 const navLinks = document.querySelectorAll('.header__nav__item .app__links');
@@ -14,7 +14,7 @@ const navLinks = document.querySelectorAll('.header__nav__item .app__links');
             navLink.addEventListener('click', () => {
                 hamburger.classList.toggle('open');
                 navMenu.classList.toggle('openMenu');
-                logo.classList.toggle('openMenu');
+                // logo.classList.toggle('openMenu');
             })
         })
 
