@@ -120,11 +120,11 @@
 }
 
 @media screen and (max-width: 767px) {
-    .header__logo.openMenu {
+    /* .header__logo.openMenu {
         position: absolute;
         left: 20%;
         z-index: 2;
-    }
+    } */
 
     .header__btn-burger {
         display: flex;
@@ -132,7 +132,8 @@
     }
 
     .header__nav__items {
-        flex-direction: column;
+        display: none;
+        /* flex-direction: column;
         align-items: center;
         position: absolute;
         right: 0px;
@@ -145,10 +146,10 @@
         transform: translateX(100%);
         visibility: hidden;
         overflow-x: hidden;
-        transition: visibility 1s, transform 1s;
+        transition: visibility 1s, transform 1s; */
     }
 
-    .openMenu {
+    /* .openMenu {
         visibility: visible;
         transform: translateX(0);
         animation: slideOpen 1s ease-out;
@@ -170,7 +171,7 @@
     .header__nav__item:not(:last-child) {
         margin-right: 0;
         margin-bottom: 40px;
-    }
+    } */
 
     .our_friends__content {
         margin: 42px 0;
@@ -187,6 +188,23 @@
     .our__friends__petscards__item:nth-child(2) {
         display: none;
     }
+
+    .in__addition {
+        text-align: center;
+    }
+
+    .in__addition__title {
+        margin: 0 auto 22px;
+    }
+
+    .in__addition__card_information__subtitle {
+        letter-spacing: 0em;
+    }
+
+    .in__addition__cart_information__supplement {
+        text-align: justify;
+        padding: 0 10px;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -196,6 +214,16 @@
 
     .app__main__background {
         height: 1050px;
+    }
+
+    .not__only__content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .help__things {
+        gap: 30px 18px;
+        justify-content: space-between;
     }
 
     .footer__wrapper {
@@ -234,8 +262,66 @@
 
 }
 
-@media screen and (max-width: 326px) {
+@media screen and (max-width: 610px) {
+    .not__only__wrapper {
+        min-height: 800px;
+    }
 
+    .app__main__background {
+        height: 950px;
+    }
+
+    .about__wrapper {
+        gap: 36px;
+    }
+
+    .about__title {
+        margin:0 auto 25px;
+        max-width: 350px;
+        text-align: center;
+    }
+
+    .about__description {
+        margin-left: 0;
+    }
+
+    .about__description p {
+        text-align: justify;
+    }
+
+    .about__description p:not(:last-child) {
+        margin-bottom: 22px;
+    }
+
+    .help__thing {
+        width: 140px;
+        height: 87px;
+    }
+
+    .help__thing__title {
+        font-size: 15px;
+    }
+
+    .help__thing__image img {
+        width: 50px;
+    }
+
+    .in__addition__background {
+        height: auto;
+    }
+
+    .in__addition__background img{
+        width: 360px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .help__things {
+        max-width: 320px;
+    }
+}
+
+@media screen and (max-width: 425px) {
     .app__section {
         padding: 42px 0;
     }
@@ -260,8 +346,6 @@
 
     .not__only__content {
         height: 296px;
-        align-items: center;
-        text-align: center;
     }
 
     .not__only__title h2 {
@@ -269,32 +353,13 @@
         letter-spacing: 0.06em;
         max-width: 200px;
     }
-
-    .about__wrapper {
-        gap: 36px;
-    }
-
+    
     .about__title {
-        margin:0 auto 25px;
         max-width: 250px;
     }
 
-    .about__description {
-        margin-left: 0;
-    }
-
     .about__description p {
-        text-align: justify;
         max-width: 272px;
-    }
-
-    .about__description p:not(:last-child) {
-        margin-bottom: 22px;
-    }
-
-    .about__background img {
-        width: 86.8%;
-        padding: 0 20px;
     }
 
     .help__title {
@@ -303,34 +368,14 @@
 
     .help__things {
         gap: 30px 18px;
-        justify-content: space-between;
     }
-
-    .help__thing {
-        width: 140px;
-        height: 87px;
-    }
-
-    .help__thing__image img {
-        width: 50px;
-    }
-
-    .help__thing__title {
-        font-size: 15px;
-    }
-
+    
     .in__addition__wrapper {
         gap: 39px;
     }
 
     .in__addition__title {
         max-width: 220px;
-        margin: 0 auto 22px;
-    }
-
-    .in__addition__card_information__subtitle {
-        letter-spacing: 0em;
-        text-align: center;
     }
 
     .in__addition__cart_information__number {
@@ -343,18 +388,17 @@
         margin-left: 9px;
     }
 
-    .in__addition__cart_information__supplement {
-        text-align: justify;
-        padding: 0 10px;
-    }
-
-    .in__addition__background {
-        height: auto;
-    }
-
     .in__addition__background img{
         width: 260px;
     }
+}
+
+@media screen and (max-width: 326px) {
+    .about__background img {
+        width: 86.8%;
+        padding: 0 20px;
+    }
+
 
     .footer__wrapper {
         height: 719px;
