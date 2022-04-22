@@ -316,6 +316,16 @@ body {
     cursor: pointer;
 }
 
+.app__pagination__btns {
+    font-family: Georgia;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 6%;
+    font-weight: 500;
+    color: #292929;
+
+}
+
 .our__friends__pagination__counter.active {
     font-family: 'Georgia';
     font-weight: 400;
@@ -334,16 +344,7 @@ body {
 .our__friends__pagination-start:disabled, 
 .our__friends__pagination-prev:disabled {
     border: 2px solid #CDCDCD;
-}
-
-.our__friends__pagination-start:disabled img,
-.our__friends__pagination-prev:disabled img {
-    opacity: 0.4;
-}
-
-.our__friends__pagination-start,
-.our__friends__pagination-prev {
-    transform: rotate(180deg);
+    color: #CDCDCD;
 }
 
 .footer {
