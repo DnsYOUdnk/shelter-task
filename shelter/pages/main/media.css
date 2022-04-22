@@ -1,11 +1,8 @@
 @media screen and (max-width: 1279px) {
-
-    .our__friends__petscards__item:last-child {
-        display: none;
-    }
-    
     .our__friends__petscards__items {
         gap: 40px;
+        overflow: hidden;
+        max-width: 580px;
     }
 
     .our__friends__petscards__item:not(:last-child) {
@@ -178,6 +175,10 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px 80px;
+    }
+
+    .our__friends__petscards__items {
+        max-width: 270px;
     }
 
     .our_friends__content__btn {
@@ -398,6 +399,9 @@
         padding: 0 20px;
     }
 
+    .in__addition__cart_information__number a {
+        margin-left: 0;
+    }
 
     .footer__wrapper {
         height: 719px;

@@ -313,6 +313,7 @@ body {
 .our__friends__petscards__items {
     list-style: none;
     display: flex;
+    gap: 90px;
 }
 
 .our__friends__petscards__item {
@@ -325,10 +326,6 @@ body {
     background: #FAFAFA;
     border-radius: 9px;
     cursor: pointer;
-}
-
-.our__friends__petscards__item:not(:last-child) {
-    margin-right: 90px;
 }
 
 .our__friends__petscards__item:hover {
