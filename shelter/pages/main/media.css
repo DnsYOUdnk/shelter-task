@@ -117,12 +117,6 @@
 }
 
 @media screen and (max-width: 767px) {
-    /* .header__logo.openMenu {
-        position: fixed;
-        left: 20%;
-        z-index: 2;
-    } */
-
     .header__btn-burger {
         display: flex;
         margin-right: 43px;
@@ -135,7 +129,7 @@
         right: 0px;
         top: 0;
         z-index: 1;
-        width: 84%;
+        width: 320px;
         height:  100vh;
         background: #292929;
         padding-top: 248px;
@@ -143,6 +137,7 @@
         visibility: hidden;
         overflow-x: hidden;
         transition: visibility 1s, transform 1s;
+        animation: slideOut 1s ease-out;
     }
 
     .openMenu {
@@ -157,6 +152,15 @@
         }
         to {
             transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
         }
     }
 
@@ -429,15 +433,6 @@
 }
 
 @media screen and (max-width: 320px) {
-    
-    .header__nav__items {
-        width: 100%;
-    }
-    
-    .header__logo.openMenu {
-        left: 5%;
-    }
-
     .help__things {
         gap: 30px 14px;
     }
