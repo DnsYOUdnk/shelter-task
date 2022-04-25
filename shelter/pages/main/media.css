@@ -8,7 +8,16 @@
     .our__friends__petscards__items {
         gap: 40px;
         max-width: 580px;
-        left: 0px;
+        left: -620px;
+    }    
+
+    @keyframes rightMove {
+        from {
+            left: -620px;
+        }
+        to {
+            left: -1240px;
+        }
     }
 
     .our__friends__petscards__item:not(:last-child) {
