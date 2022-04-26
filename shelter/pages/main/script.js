@@ -73,10 +73,10 @@ const popUpPetCard = (idPet) => {
                             <div class="our__friends__pop-up__breed">${type + ' - ' + breed}</div>
                             <div class="our__friends__pop-up__about">${description}</div>
                             <ul class="our__friends__pop-up__characteristic">
-                                <li class="our__friends__pop-up__characteristic__item">Age: ${age}</li>
-                                <li class="our__friends__pop-up__characteristic__item">Inoculations: ${inoculations.join(', ')}</li>
-                                <li class="our__friends__pop-up__characteristic__item">Diseases: ${diseases.join(', ')}</li>
-                                <li class="our__friends__pop-up__characteristic__item">Parasites: ${parasites.join(', ')}</li>
+                                <li class="our__friends__pop-up__characteristic__item"><b>Age:</b> ${age}</li>
+                                <li class="our__friends__pop-up__characteristic__item"><b>Inoculations:</b> ${inoculations.join(', ')}</li>
+                                <li class="our__friends__pop-up__characteristic__item"><b>Diseases:</b> ${diseases.join(', ')}</li>
+                                <li class="our__friends__pop-up__characteristic__item"><b>Parasites:</b> ${parasites.join(', ')}</li>
                             </ul>
                         </div>
                     </div>
