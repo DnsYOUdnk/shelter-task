@@ -65,6 +65,7 @@ const popUpPetCard = (idPet) => {
     let petCardInfo = newData.filter(({id}) => id === idPet).map(({name, type, breed, description, age, inoculations, diseases, parasites, img}) => {
         return  `
                     <div class="our__friends__pop-up__wrapper">
+                        <div class="our__friends__pop-up__btn-close"><img src="./../../assets/svg/icon__cross-exit.svg" alt="close"></div>
                         <div class="our__friends__pop-up__image">
                             <img src=${img} alt=${name}>
                         </div>
@@ -85,7 +86,29 @@ const popUpPetCard = (idPet) => {
     blockPopUpPetCard.classList.add('active');
     document.body.style.overflowY = 'hidden';
     blockPopUpPetCard.innerHTML = `${petCardInfo[0]}`;
-    // console.log(petCardInfo[0])
+
+    const popUpCloseBtn = document.querySelector('.our__friends__pop-up__btn-close');
+          popUpCloseBtn.addEventListener('click',() => {
+            blockPopUpPetCard.classList.remove('active');
+            document.body.style.overflowY = '';
+            blockPopUpPetCard.innerHTML = '';
+        })
+        
+    blockPopUpPetCard.addEventListener('click',(e) => {
+        if(e.target.classList.contains('our__friends__pop-up')) {
+            blockPopUpPetCard.classList.remove('active');
+            document.body.style.overflowY = '';
+            blockPopUpPetCard.innerHTML = '';
+        }
+    })
+
+    blockPopUpPetCard.addEventListener('mouseover',(e) => {
+        if(e.target.classList.contains('our__friends__pop-up')) {
+            popUpCloseBtn.classList.add('active')
+        } else if (!e.target.classList.contains('our__friends__pop-up')) {
+            popUpCloseBtn.classList.remove('active')
+        }
+    })
 }
 
 const moveLeft = () => {
