@@ -222,10 +222,14 @@
         max-width: 270px;
         left: -310px;
     }
-
-    .our__friends__petscards__item:nth-child(odd) {
+    
+    .our__friends__petscards__item {
         display: none;
-    } 
+    }
+    
+    .our__friends__petscards__item:nth-child(3n+1) {
+        display: flex;
+    }
 
     @keyframes leftMove {
         0% {

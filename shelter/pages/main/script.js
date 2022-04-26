@@ -32,26 +32,62 @@ const getShelterData = async () => {
 }
 
 let newData = [];
-
+let ourFriendsCardAll = [];
 const createPetsCards = (data) => {
     newData = data;
 
     let listPetsCards = '';
     newData.forEach(({name, img, id}) => {
         listPetsCards += `
-                            <li class="our__friends__petscards__item">
+                            <li class="our__friends__petscards__item" id=${id}>
                                 <div class="our__friends__petscards__item__image">
-                                    <img src=${img} alt="cat ${name}">
+                                    <img src=${img} alt="${name}">
                                 </div>
                                 <div class="our__friends__petscards__item__name">${name}</div>
                                 <div class="our__friends__petscards__item__button">
-                                    <a href="#" class="app__btns app__links" id=${id}>Learn more</a>
+                                    <button class="app__btns" >Learn more</button>
                                 </div>
                             </li>
                         `
     })
     ourFriendsCardsList.innerHTML = listPetsCards;
+
+    ourFriendsCardAll = document.querySelectorAll('.our__friends__petscards__item');
+    ourFriendsCardAll.forEach(petCard => {
+        petCard.addEventListener('click', () => {
+            popUpPetCard(petCard.id)
+        })
+    })
 }
+
+const blockPopUpPetCard = document.querySelector('.our__friends__pop-up');
+const popUpPetCard = (idPet) => {
+    let petCardInfo = newData.filter(({id}) => id === idPet).map(({name, type, breed, description, age, inoculations, diseases, parasites, img}) => {
+        return  `
+                    <div class="our__friends__pop-up__wrapper">
+                        <div class="our__friends__pop-up__image">
+                            <img src=${img} alt=${name}>
+                        </div>
+                        <div class="our__friends__pop-up__description">
+                            <div class="our__friends__pop-up__name">${name}</div>
+                            <div class="our__friends__pop-up__breed">${type + ' - ' + breed}</div>
+                            <div class="our__friends__pop-up__about">${description}</div>
+                            <ul class="our__friends__pop-up__characteristic">
+                                <li class="our__friends__pop-up__characteristic__item">Age: ${age}</li>
+                                <li class="our__friends__pop-up__characteristic__item">Inoculations: ${inoculations.join(', ')}</li>
+                                <li class="our__friends__pop-up__characteristic__item">Diseases: ${diseases.join(', ')}</li>
+                                <li class="our__friends__pop-up__characteristic__item">Parasites: ${parasites.join(', ')}</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+    })
+    blockPopUpPetCard.classList.add('active');
+    document.body.style.overflowY = 'hidden';
+    blockPopUpPetCard.innerHTML = `${petCardInfo[0]}`;
+    // console.log(petCardInfo[0])
+}
+
 const moveLeft = () => {
     ourFriendsCardsList.classList.add('left__move');
     ourFriendsContentBtnLeft.removeEventListener('click', moveLeft);
@@ -90,8 +126,10 @@ ourFriendsCardsList.addEventListener('animationend', (event) => {
     ourFriendsContentBtnLeft.addEventListener('click', moveLeft)
 })
 
+
+
 window.addEventListener('load', () => {
     getShelterData()
 })
 
-alert('Здравствуйте, прошу прощение, но работа еще не закончена. Если у вас есть возможность проверить ее завтра или оставить свой контакт, я как только закончу с вами свяжусь, очень сильно благодарен за понимание)')
+// alert('Здравствуйте, прошу прощение, но работа еще не закончена. Если у вас есть возможность проверить ее завтра или оставить свой контакт, я как только закончу с вами свяжусь, очень сильно благодарен за понимание)')

@@ -407,16 +407,31 @@ body {
     color: #545454;
 }
 
-.our__friends__petscards__item__button a {
+.our__friends__petscards__item__button button {
     background: transparent;
     border: 2px solid #F1CDB3;
     padding: 13px 42px;
 }
 
-.our__friends__petscards__item:hover a {
+.our__friends__petscards__item:hover button {
     background-color: #FDDCC4;
     border: 2px solid #FDDCC4;
 }
+
+.our__friends__pop-up.active {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0000004f;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 .help__wrapper {
     display: flex;
