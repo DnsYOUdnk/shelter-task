@@ -116,6 +116,7 @@ body {
     right: 0;
     left: 0;
     background: rgba(41, 41, 41, 0.6);
+    transition: 1s;
 }
 
 .header__wrapper {
@@ -337,10 +338,15 @@ body {
 }
 
 @keyframes leftMove {
-    from {
+    0% {
         left: -1080px;
     }
-    to {
+
+    80% {
+        left: 80px;
+    }
+
+    100% {
         left: 0px;
     }
 }
@@ -350,10 +356,15 @@ body {
 }
 
 @keyframes rightMove {
-    from {
+    0% {
         left: -1080px;
     }
-    to {
+
+    80% {
+        left: -2240px;
+    }
+
+    100% {
         left: -2160px;
     }
 }

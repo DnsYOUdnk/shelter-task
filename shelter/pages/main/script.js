@@ -93,3 +93,5 @@ ourFriendsCardsList.addEventListener('animationend', (event) => {
 window.addEventListener('load', () => {
     getShelterData()
 })
+
+alert('Здравствуйте, прошу прощение, но работа еще не закончена. Если у вас есть возможность проверить ее завтра или оставить свой контакт, я как только закончу с вами свяжусь, очень сильно благодарен за понимание)')

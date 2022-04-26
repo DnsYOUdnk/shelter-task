@@ -11,11 +11,34 @@
         left: -620px;
     }    
 
-    @keyframes rightMove {
-        from {
+    .our__friends__petscards__item:nth-child(3n+3) {
+        display: none;
+    } 
+
+    @keyframes leftMove {
+        0% {
             left: -620px;
         }
-        to {
+    
+        80% {
+            left: 40px;
+        }
+    
+        100% {
+            left: 0px;
+        }
+    }
+    
+    @keyframes rightMove {
+        0% {
+            left: -620px;
+        }
+    
+        80% {
+            left: -1280px;
+        }
+    
+        100% {
             left: -1240px;
         }
     }
@@ -191,16 +214,45 @@
         gap: 20px 80px;
     }
 
-    .our__friends__petscards__items {
-        max-width: 270px;
-    }
-
     .our_friends__content__btn {
         order: 1;
     }
 
-    .our__friends__petscards__item:nth-child(2) {
+    .our__friends__petscards__items {
+        max-width: 270px;
+        left: -310px;
+    }
+
+    .our__friends__petscards__item:nth-child(odd) {
         display: none;
+    } 
+
+    @keyframes leftMove {
+        0% {
+            left: -310px;
+        }
+    
+        80% {
+            left: 40px;
+        }
+    
+        100% {
+            left: 0px;
+        }
+    }
+    
+    @keyframes rightMove {
+        0% {
+            left: -310px;
+        }
+    
+        80% {
+            left: -660px;
+        }
+    
+        100% {
+            left: -620px;
+        }
     }
 
     .in__addition {
