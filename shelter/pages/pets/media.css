@@ -4,10 +4,6 @@
         gap: 30px 40px;
     }
 
-    .our__friends__petscards__item:nth-last-child(-n+2) {
-        display: none;
-    }
-
     .our__friends__pop-up__wrapper {
         max-width: 630px;
         max-height: 350px;
@@ -40,6 +36,10 @@
 }
 
 @media screen and (max-width: 1130px) {
+    .app__shelter {
+        height: auto;
+    }
+
     .footer__wrapper {
         gap: 40px;
     }
@@ -141,10 +141,6 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px 80px;
-    }
-
-    .our__friends__petscards__item:nth-last-child(-n+5) {
-        display: none;
     }
 
     .our__friends__pop-up__wrapper {

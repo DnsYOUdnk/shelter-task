@@ -5,9 +5,6 @@ const logo = document.querySelector('.header__logo');
 const backgroundMenu = document.querySelector('.app__background__menu');
 const navLinks = document.querySelectorAll('.header__nav__item .app__links');
 
-// const ourFriendsContentBtnLeft = document.querySelector('.our_friends__content__btn-left');
-// const ourFriendsContentBtnRight = document.querySelector('.our_friends__content__btn-right');
-
 const changeClassElement = () => {
     hamburger.classList.toggle('open');
     navMenu.classList.toggle('openMenu');
@@ -33,6 +30,99 @@ const getShelterData = async () => {
     const response = await fetch('./../../assets/json/shelterPetsData.json');
     const  data = await response.json();
     createPetsCards([...data])
+    generateNewPets(data)
+}
+
+let newArrPets = [];
+const generateNewPets = (data) => {
+    for (let i = 48; i > newArrPets.length; ) {
+        newArrPets.push(...data.sort((a,b) => Math.random() - Math.random()))
+    }
+    showNumberElements()
+}
+
+let page = 1;
+const showNumberElements = () => {
+    let arrNumberPets = [];
+    
+    if (1280 <= window.innerWidth) {
+        arrNumberPets = getSliceArrPets(8)
+    } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
+        arrNumberPets = getSliceArrPets(6)
+    } else if (window.innerWidth < 768) {
+        arrNumberPets = getSliceArrPets(3)
+    }
+
+    createPetsCards([...arrNumberPets])
+}
+
+const getSliceArrPets = (maxElem) => {
+    return newArrPets.slice(maxElem*(page-1), maxElem*page)
+}
+
+const petsPaginationBtnStart = document.querySelector('.our__friends__pagination-start');
+const petsPaginationBtnPrev = document.querySelector('.our__friends__pagination-prev');
+const petsPaginationBtnNext = document.querySelector('.our__friends__pagination-next');
+const petsPaginationBtnEnd = document.querySelector('.our__friends__pagination-end');
+// изменение карточек, изменение страницы, изменение активности кнопок
+const petsPaginationBtns = document.querySelectorAll('.app__pagination__btns');
+      petsPaginationBtns.forEach((paginationBtn) => {
+            paginationBtn.addEventListener('click', (e) => {
+                changeContentPets(e.target)
+                console.log(e)
+                showNumberElements()
+            })
+      })
+
+const changeContentPets = (element) => {
+    if (element.classList.contains('our__friends__pagination-prev')) {
+        page--
+    } else if (element.classList.contains('our__friends__pagination-next')) {
+        page++
+    } else if (element.classList.contains('our__friends__pagination-start')) {
+        page = 1;
+    } else if (element.classList.contains('our__friends__pagination-end')) {
+        if (1280 <= window.innerWidth) {
+            page = newArrPets.length/8;
+        } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
+            page = newArrPets.length/6;
+        } else if (window.innerWidth < 768) {
+            page = newArrPets.length/3;
+        }
+    }
+
+    checkActiveBtns()
+}
+
+const checkActiveBtns = () => {
+    if(page == 6 || page == 8 || page == 16) {
+        petsPaginationBtnEnd.classList.remove('active');
+        petsPaginationBtnEnd.setAttribute('disabled', '');
+        petsPaginationBtnNext.classList.remove('active');
+        petsPaginationBtnNext.setAttribute('disabled', '');
+        petsPaginationBtnStart.classList.add('active');
+        petsPaginationBtnStart.removeAttribute('disabled');
+        petsPaginationBtnPrev.classList.add('active');
+        petsPaginationBtnPrev.removeAttribute('disabled');
+    } else if (page == 1) {
+        petsPaginationBtnStart.classList.remove('active');
+        petsPaginationBtnStart.setAttribute('disabled', '');
+        petsPaginationBtnPrev.classList.remove('active');
+        petsPaginationBtnPrev.setAttribute('disabled', '');
+        petsPaginationBtnNext.classList.add('active');
+        petsPaginationBtnNext.removeAttribute('disabled');
+        petsPaginationBtnEnd.classList.add('active');
+        petsPaginationBtnEnd.removeAttribute('disabled');
+    } else {
+        petsPaginationBtnStart.classList.add('active');
+        petsPaginationBtnStart.removeAttribute('disabled');
+        petsPaginationBtnPrev.classList.add('active');
+        petsPaginationBtnPrev.removeAttribute('disabled');
+        petsPaginationBtnNext.classList.add('active');
+        petsPaginationBtnNext.removeAttribute('disabled');
+        petsPaginationBtnEnd.classList.add('active');
+        petsPaginationBtnEnd.removeAttribute('disabled');
+    }
 }
 
 let newData = [];
@@ -54,7 +144,9 @@ const createPetsCards = (data) => {
                             </li>
                         `
     })
+    
     ourFriendsCardsList.innerHTML = listPetsCards;
+    document.querySelector('.our__friends__pagination__counter').innerText = `${page}`;
 
     ourFriendsCardAll = document.querySelectorAll('.our__friends__petscards__item');
     ourFriendsCardAll.forEach(petCard => {
@@ -156,7 +248,9 @@ const changeClassElementPopUp = () => {
 //     ourFriendsContentBtnLeft.addEventListener('click', moveLeft)
 // })
 
-
+window.addEventListener('resize', () => {
+    showNumberElements()
+})
 
 window.addEventListener('load', () => {
     getShelterData()
