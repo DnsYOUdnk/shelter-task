@@ -1,3 +1,4 @@
+const headerWrapper = document.querySelector('.header__wrapper');
 const hamburger = document.querySelector('.header__btn-burger');
 const navMenu = document.querySelector('.header__nav__items');
 const logo = document.querySelector('.header__logo');
@@ -14,8 +15,10 @@ const changeClassElement = () => {
 
     if(navMenu.classList.contains('openMenu')) {
         document.body.style.overflowY = 'hidden';
+        navMenu.prepend(logo)
     } else {
         document.body.style.overflowY = '';
+        headerWrapper.prepend(logo)
     }
 }
 
@@ -157,5 +160,3 @@ ourFriendsCardsList.addEventListener('animationend', (event) => {
 window.addEventListener('load', () => {
     getShelterData()
 })
-
-// alert('Здравствуйте, прошу прощение, но работа еще не закончена. Если у вас есть возможность проверить ее завтра или оставить свой контакт, я как только закончу с вами свяжусь, очень сильно благодарен за понимание)')

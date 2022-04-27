@@ -126,6 +126,7 @@ body {
 
 .header__logo {
     width: 186px;
+    transition: 1s;
 }
 
 .header__logo:hover {

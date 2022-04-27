@@ -209,6 +209,12 @@
         animation: slideOpen 1s ease-out;
     }
 
+    .header__nav__items.openMenu .header__logo {
+        position: absolute;
+        top: 30px;
+        left: 10px;
+    }
+
     @keyframes slideOpen {
         from {
             transform: translateX(100%);
