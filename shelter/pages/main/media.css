@@ -187,6 +187,7 @@
 
     .header__nav__items {
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         position: fixed;
         right: 0px;
@@ -195,7 +196,6 @@
         width: 320px;
         height:  100vh;
         background: #292929;
-        padding-top: 248px;
         transform: translateX(100%);
         visibility: hidden;
         overflow-x: hidden;

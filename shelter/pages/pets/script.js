@@ -1,3 +1,5 @@
+// Create burger menu
+
 const header = document.querySelector('.header');
 const hamburger = document.querySelector('.header__btn-burger');
 const navMenu = document.querySelector('.header__nav__items');
@@ -24,22 +26,27 @@ navLinks.forEach((navLink) => {
     navLink.addEventListener('click', changeClassElement)
 })
 
-const ourFriendsCardsList = document.querySelector('.our__friends__petscards__items');
+// Get data
 
 const getShelterData = async () => {
     const response = await fetch('./../../assets/json/shelterPetsData.json');
     const  data = await response.json();
-    createPetsCards([...data])
     generateNewPets(data)
 }
 
+// Generate random
+
+const ourFriendsCardsList = document.querySelector('.our__friends__petscards__items');
 let newArrPets = [];
 const generateNewPets = (data) => {
     for (let i = 48; i > newArrPets.length; ) {
-        newArrPets.push(...data.sort((a,b) => Math.random() - Math.random()))
+        newArrPets.push(...data.sort((a,b) => Math.random() - Math.random()).reverse())
     }
     showNumberElements()
 }
+
+// Create PetsCards
+
 
 let newData = [];
 let ourFriendsCardAll = [];
@@ -71,6 +78,86 @@ const createPetsCards = (data) => {
         })
     })
 }
+
+//Pagination and create pages
+
+let page = 1;
+const showNumberElements = () => {
+    let arrNumberPets = [];
+    if (1280 <= window.innerWidth) {
+        page = page > newArrPets.length/8 ? 6 : page;
+        arrNumberPets = getSliceArrPets(8)
+    } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
+        page = page > newArrPets.length/6 ? 8 : page;
+        arrNumberPets = getSliceArrPets(6)
+        checkActiveBtns(8)
+    } else if (window.innerWidth < 768) {
+        arrNumberPets = getSliceArrPets(3)
+        checkActiveBtns(16)
+    }
+
+    createPetsCards([...arrNumberPets])
+}
+
+const getSliceArrPets = (maxElem) => {
+    return newArrPets.slice(maxElem*(page-1), maxElem*page)
+}
+
+const petsPaginationBtns = document.querySelectorAll('.app__pagination__btns');
+      petsPaginationBtns.forEach((paginationBtn) => {
+            paginationBtn.addEventListener('click', (e) => {
+                changeContentPets(e.target)
+                showNumberElements()
+            })
+      })
+
+const changeContentPets = (element) => {
+    let width = window.innerWidth,
+        pageEnd = 1280 <= width ? newArrPets.length/8 : (768 <= width && width < 1280) ? newArrPets.length/6 : newArrPets.length/3;
+
+    if (element.classList.contains('our__friends__pagination-prev')) {
+        page--;
+    } else if (element.classList.contains('our__friends__pagination-next')) {
+        page++;
+    } else if (element.classList.contains('our__friends__pagination-start')) {
+        page = 1;
+    } else if (element.classList.contains('our__friends__pagination-end')) {
+        page = pageEnd;
+    }
+
+    checkActiveBtns(pageEnd)
+}
+
+const paginationBtnsLeft = document.querySelectorAll('.pagination-left');
+const paginationBtnsRight = document.querySelectorAll('.pagination-right');
+
+const checkActiveBtns = (pageCheck) => {
+    if(page === pageCheck) {
+        changeElementStyleOff(paginationBtnsRight)
+        changeElementStyleOn(paginationBtnsLeft)
+    } else if (page === 1) {
+        changeElementStyleOn(paginationBtnsRight)
+        changeElementStyleOff(paginationBtnsLeft)
+    } else {
+        changeElementStyleOn(petsPaginationBtns)
+    }
+}
+
+const changeElementStyleOn = (arrElem) => {
+    arrElem.forEach(element => {
+        element.classList.add('active');
+        element.removeAttribute('disabled'); 
+    })
+}
+
+const changeElementStyleOff = (arrElem) => {
+    arrElem.forEach(element => {
+        element.classList.remove('active');
+        element.setAttribute('disabled', '');
+    })
+}
+
+//PopUP
 
 const blockPopUpPetCard = document.querySelector('.our__friends__pop-up');
 const popUpPetCard = (idPet) => {
@@ -124,79 +211,6 @@ const changeClassElementPopUp = () => {
     blockPopUpPetCard.classList.remove('active');
     document.body.style.overflowY = '';
     blockPopUpPetCard.innerHTML = '';
-}
-
-let page = 1;
-const showNumberElements = () => {
-    let arrNumberPets = [];
-    
-    if (1280 <= window.innerWidth) {
-        arrNumberPets = getSliceArrPets(8)
-    } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
-        arrNumberPets = getSliceArrPets(6)
-    } else if (window.innerWidth < 768) {
-        arrNumberPets = getSliceArrPets(3)
-    }
-
-    createPetsCards([...arrNumberPets])
-}
-
-const getSliceArrPets = (maxElem) => {
-    return newArrPets.slice(maxElem*(page-1), maxElem*page)
-}
-
-const petsPaginationBtns = document.querySelectorAll('.app__pagination__btns');
-      petsPaginationBtns.forEach((paginationBtn) => {
-            paginationBtn.addEventListener('click', (e) => {
-                changeContentPets(e.target)
-                showNumberElements()
-            })
-      })
-
-const changeContentPets = (element) => {
-    let width = window.innerWidth,
-        pageEnd = 1280 <= width ? newArrPets.length/8 : 768 <= width && width < 1280 ? page = newArrPets.length/6 : newArrPets.length/3;
-
-    if (element.classList.contains('our__friends__pagination-prev')) {
-        page--;
-    } else if (element.classList.contains('our__friends__pagination-next')) {
-        page++;
-    } else if (element.classList.contains('our__friends__pagination-start')) {
-        page = 1;
-    } else if (element.classList.contains('our__friends__pagination-end')) {
-        page = pageEnd;
-    }
-
-    checkActiveBtns(pageEnd)
-}
-
-const paginationBtnsLeft = document.querySelectorAll('.pagination-left');
-const paginationBtnsRight = document.querySelectorAll('.pagination-right');
-
-const checkActiveBtns = (pageCheck) => {
-    if(page == pageCheck) {
-        changeElementStyleOff(paginationBtnsRight)
-        changeElementStyleOn(paginationBtnsLeft)
-    } else if (page == 1) {
-        changeElementStyleOn(paginationBtnsRight)
-        changeElementStyleOff(paginationBtnsLeft)
-    } else {
-        changeElementStyleOn(petsPaginationBtns)
-    }
-}
-
-const changeElementStyleOn = (arrElem) => {
-    arrElem.forEach(element => {
-        element.classList.add('active');
-        element.removeAttribute('disabled'); 
-    })
-}
-
-const changeElementStyleOff = (arrElem) => {
-    arrElem.forEach(element => {
-        element.classList.remove('active');
-        element.setAttribute('disabled', '');
-    })
 }
 
 window.addEventListener('resize', () => showNumberElements())
