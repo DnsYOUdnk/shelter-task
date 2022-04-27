@@ -321,6 +321,19 @@ body {
     border: 2px solid #FDDCC4;
 }
 
+.our__friends__pop-up.active {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0000004f;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .our__friends__pagination {
     display: flex;
     gap: 20px;

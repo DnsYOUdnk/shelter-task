@@ -56,67 +56,67 @@ const createPetsCards = (data) => {
     })
     ourFriendsCardsList.innerHTML = listPetsCards;
 
-    // ourFriendsCardAll = document.querySelectorAll('.our__friends__petscards__item');
-    // ourFriendsCardAll.forEach(petCard => {
-    //     petCard.addEventListener('click', () => {
-    //         popUpPetCard(petCard.id)
-    //     })
-    // })
+    ourFriendsCardAll = document.querySelectorAll('.our__friends__petscards__item');
+    ourFriendsCardAll.forEach(petCard => {
+        petCard.addEventListener('click', () => {
+            popUpPetCard(petCard.id)
+        })
+    })
 }
 
-// const blockPopUpPetCard = document.querySelector('.our__friends__pop-up');
-// const popUpPetCard = (idPet) => {
-//     let petCardInfo = newData.filter(({id}) => id === idPet).map(({name, type, breed, description, age, inoculations, diseases, parasites, img}) => {
-//         return  `
-//                     <div class="our__friends__pop-up__wrapper">
-//                         <div class="our__friends__pop-up__btn-close"><img src="./../../assets/svg/icon__cross-exit.svg" alt="close"></div>
-//                         <div class="our__friends__pop-up__image">
-//                             <img src=${img} alt=${name}>
-//                         </div>
-//                         <div class="our__friends__pop-up__description">
-//                             <div class="our__friends__pop-up__name">${name}</div>
-//                             <div class="our__friends__pop-up__breed">${type + ' - ' + breed}</div>
-//                             <div class="our__friends__pop-up__about">${description}</div>
-//                             <ul class="our__friends__pop-up__characteristic">
-//                                 <li class="our__friends__pop-up__characteristic__item"><b>Age:</b> ${age}</li>
-//                                 <li class="our__friends__pop-up__characteristic__item"><b>Inoculations:</b> ${inoculations.join(', ')}</li>
-//                                 <li class="our__friends__pop-up__characteristic__item"><b>Diseases:</b> ${diseases.join(', ')}</li>
-//                                 <li class="our__friends__pop-up__characteristic__item"><b>Parasites:</b> ${parasites.join(', ')}</li>
-//                             </ul>
-//                         </div>
-//                     </div>
-//                 `
-//     })
+const blockPopUpPetCard = document.querySelector('.our__friends__pop-up');
+const popUpPetCard = (idPet) => {
+    let petCardInfo = newData.filter(({id}) => id === idPet).map(({name, type, breed, description, age, inoculations, diseases, parasites, img}) => {
+        return  `
+                    <div class="our__friends__pop-up__wrapper">
+                        <div class="our__friends__pop-up__btn-close"><img src="./../../assets/svg/icon__cross-exit.svg" alt="close"></div>
+                        <div class="our__friends__pop-up__image">
+                            <img src=${img} alt=${name}>
+                        </div>
+                        <div class="our__friends__pop-up__description">
+                            <div class="our__friends__pop-up__name">${name}</div>
+                            <div class="our__friends__pop-up__breed">${type + ' - ' + breed}</div>
+                            <div class="our__friends__pop-up__about">${description}</div>
+                            <ul class="our__friends__pop-up__characteristic">
+                                <li class="our__friends__pop-up__characteristic__item"><b>Age:</b> ${age}</li>
+                                <li class="our__friends__pop-up__characteristic__item"><b>Inoculations:</b> ${inoculations.join(', ')}</li>
+                                <li class="our__friends__pop-up__characteristic__item"><b>Diseases:</b> ${diseases.join(', ')}</li>
+                                <li class="our__friends__pop-up__characteristic__item"><b>Parasites:</b> ${parasites.join(', ')}</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+    })
     
-//     blockPopUpPetCard.classList.add('active');
-//     document.body.style.overflowY = 'hidden';
-//     blockPopUpPetCard.innerHTML = `${petCardInfo[0]}`;
+    blockPopUpPetCard.classList.add('active');
+    document.body.style.overflowY = 'hidden';
+    blockPopUpPetCard.innerHTML = `${petCardInfo[0]}`;
 
-//     const popUpCloseBtn = document.querySelector('.our__friends__pop-up__btn-close');
-//           popUpCloseBtn.addEventListener('click',() => {
-//             changeClassElementPopUp()
-//         })
+    const popUpCloseBtn = document.querySelector('.our__friends__pop-up__btn-close');
+          popUpCloseBtn.addEventListener('click',() => {
+            changeClassElementPopUp()
+        })
         
-//     blockPopUpPetCard.addEventListener('click',(e) => {
-//         if(e.target.classList.contains('our__friends__pop-up')) {
-//             changeClassElementPopUp()
-//         }
-//     })
+    blockPopUpPetCard.addEventListener('click',(e) => {
+        if(e.target.classList.contains('our__friends__pop-up')) {
+            changeClassElementPopUp()
+        }
+    })
 
-//     blockPopUpPetCard.addEventListener('mouseover',(e) => {
-//         if(e.target.classList.contains('our__friends__pop-up')) {
-//             popUpCloseBtn.classList.add('active')
-//         } else if (!e.target.classList.contains('our__friends__pop-up')) {
-//             popUpCloseBtn.classList.remove('active')
-//         }
-//     })
-// }
+    blockPopUpPetCard.addEventListener('mouseover',(e) => {
+        if(e.target.classList.contains('our__friends__pop-up')) {
+            popUpCloseBtn.classList.add('active')
+        } else if (!e.target.classList.contains('our__friends__pop-up')) {
+            popUpCloseBtn.classList.remove('active')
+        }
+    })
+}
 
-// const changeClassElementPopUp = () => {
-//     blockPopUpPetCard.classList.remove('active');
-//     document.body.style.overflowY = '';
-//     blockPopUpPetCard.innerHTML = '';
-// }
+const changeClassElementPopUp = () => {
+    blockPopUpPetCard.classList.remove('active');
+    document.body.style.overflowY = '';
+    blockPopUpPetCard.innerHTML = '';
+}
 
 // const moveLeft = () => {
 //     ourFriendsCardsList.classList.add('left__move');
