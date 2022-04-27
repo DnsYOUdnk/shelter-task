@@ -476,13 +476,17 @@ body {
 }
 
 .our__friends__pop-up__characteristic {    
-    padding-left: 18px;
+    padding-left: 16px;
+    font-size: 15px;
+    line-height: 110%;
+}
+
+.our__friends__pop-up__characteristic__item::marker {
+    color: #F1CDB3;
 }
 
 .our__friends__pop-up__characteristic__item:not(:last-child) {
     margin-bottom: 10px;
-    font-size: 15px;
-    line-height: 110%;
 }
 
 .our__friends__pop-up__btn-close {
