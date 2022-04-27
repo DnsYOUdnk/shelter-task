@@ -99,6 +99,16 @@ body {
     background: #F6F6F6;
 }
 
+.app__background__menu.active {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(41, 41, 41, 0.6);
+    transition: 1s;
+}
+
 .header {
     background: #ffffff;
     position: sticky;
@@ -211,11 +221,6 @@ body {
     text-align: center;
 }
 
-.our__friends__petscards__item__image img{
-    min-height: 270px;
-    border-radius: 9px 9px 0 0;
-}
-
 .our_friends__content {
     margin: 60px 0;
     width: 100%;
@@ -242,6 +247,22 @@ body {
     border: 2px solid #FDDCC4;
     background: #FDDCC4;
 }
+
+/* .our__friends__petscards {
+    overflow: hidden;
+    position: relative;
+}
+
+.our__friends__petscards__items {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    max-width: 990px;
+    position: relative;
+    transition: 1s;
+    left: -180px;
+} */
 
 .our__friends__petscards__items {
     list-style: none;
@@ -271,6 +292,11 @@ body {
     margin-bottom: 28px;
 }
 
+.our__friends__petscards__item__image img{
+    min-height: 270px;
+    border-radius: 9px 9px 0 0;
+}
+
 .our__friends__petscards__item__button {
     margin: 30px 0;
 }
@@ -284,13 +310,13 @@ body {
     color: #545454;
 }
 
-.our__friends__petscards__item__button a {
+.our__friends__petscards__item__button button {
     background: transparent;
     border: 2px solid #F1CDB3;
     padding: 13px 42px;
 }
 
-.our__friends__petscards__item:hover a {
+.our__friends__petscards__item:hover button {
     background-color: #FDDCC4;
     border: 2px solid #FDDCC4;
 }

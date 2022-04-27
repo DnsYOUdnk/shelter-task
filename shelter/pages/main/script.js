@@ -83,22 +83,19 @@ const popUpPetCard = (idPet) => {
                     </div>
                 `
     })
+    
     blockPopUpPetCard.classList.add('active');
     document.body.style.overflowY = 'hidden';
     blockPopUpPetCard.innerHTML = `${petCardInfo[0]}`;
 
     const popUpCloseBtn = document.querySelector('.our__friends__pop-up__btn-close');
           popUpCloseBtn.addEventListener('click',() => {
-            blockPopUpPetCard.classList.remove('active');
-            document.body.style.overflowY = '';
-            blockPopUpPetCard.innerHTML = '';
+            changeClassElementPopUp()
         })
         
     blockPopUpPetCard.addEventListener('click',(e) => {
         if(e.target.classList.contains('our__friends__pop-up')) {
-            blockPopUpPetCard.classList.remove('active');
-            document.body.style.overflowY = '';
-            blockPopUpPetCard.innerHTML = '';
+            changeClassElementPopUp()
         }
     })
 
@@ -109,6 +106,12 @@ const popUpPetCard = (idPet) => {
             popUpCloseBtn.classList.remove('active')
         }
     })
+}
+
+const changeClassElementPopUp = () => {
+    blockPopUpPetCard.classList.remove('active');
+    document.body.style.overflowY = '';
+    blockPopUpPetCard.innerHTML = '';
 }
 
 const moveLeft = () => {
