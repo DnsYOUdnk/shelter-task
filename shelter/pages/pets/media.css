@@ -7,6 +7,36 @@
     .our__friends__petscards__item:nth-last-child(-n+2) {
         display: none;
     }
+
+    .our__friends__pop-up__wrapper {
+        max-width: 630px;
+        max-height: 350px;
+        gap: 11px;
+    }
+
+    .our__friends__pop-up__image img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .our__friends__pop-up__description {
+        margin-top: 10px;
+        margin-right: 9px;
+    }
+    
+    .our__friends__pop-up__breed {
+        padding: 10px 0 20px;
+    }
+
+    .our__friends__pop-up__about {
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        padding-bottom: 20px;  
+    }
+    
+    .our__friends__pop-up__characteristic__item:not(:last-child) {
+        margin-bottom: 5px;
+    }
 }
 
 @media screen and (max-width: 1130px) {
@@ -115,6 +145,37 @@
 
     .our__friends__petscards__item:nth-last-child(-n+5) {
         display: none;
+    }
+
+    .our__friends__pop-up__wrapper {
+        max-width: 240px;
+        max-height: 430px;
+        gap: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .our__friends__pop-up__image {
+        display: none;
+    }
+
+    .our__friends__pop-up__description {
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+
+    .our__friends__pop-up__about {
+        text-align: justify;
+        padding-bottom: 24px;  
+    }
+
+    .our__friends__pop-up__characteristic {    
+        text-align: start;
+    }
+
+    .our__friends__pop-up__btn-close {
+        right: -32px;
     }
 
     .our__friends__pagination {
