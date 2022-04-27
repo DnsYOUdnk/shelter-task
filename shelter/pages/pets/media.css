@@ -2,6 +2,7 @@
     .our__friends__petscards__items {
         justify-content: center;
         gap: 30px 40px;
+        max-width: 710px;
     }
 
     .our__friends__pop-up__wrapper {

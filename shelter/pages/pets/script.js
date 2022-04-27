@@ -41,90 +41,6 @@ const generateNewPets = (data) => {
     showNumberElements()
 }
 
-let page = 1;
-const showNumberElements = () => {
-    let arrNumberPets = [];
-    
-    if (1280 <= window.innerWidth) {
-        arrNumberPets = getSliceArrPets(8)
-    } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
-        arrNumberPets = getSliceArrPets(6)
-    } else if (window.innerWidth < 768) {
-        arrNumberPets = getSliceArrPets(3)
-    }
-
-    createPetsCards([...arrNumberPets])
-}
-
-const getSliceArrPets = (maxElem) => {
-    return newArrPets.slice(maxElem*(page-1), maxElem*page)
-}
-
-const petsPaginationBtnStart = document.querySelector('.our__friends__pagination-start');
-const petsPaginationBtnPrev = document.querySelector('.our__friends__pagination-prev');
-const petsPaginationBtnNext = document.querySelector('.our__friends__pagination-next');
-const petsPaginationBtnEnd = document.querySelector('.our__friends__pagination-end');
-// изменение карточек, изменение страницы, изменение активности кнопок
-const petsPaginationBtns = document.querySelectorAll('.app__pagination__btns');
-      petsPaginationBtns.forEach((paginationBtn) => {
-            paginationBtn.addEventListener('click', (e) => {
-                changeContentPets(e.target)
-                console.log(e)
-                showNumberElements()
-            })
-      })
-
-const changeContentPets = (element) => {
-    if (element.classList.contains('our__friends__pagination-prev')) {
-        page--
-    } else if (element.classList.contains('our__friends__pagination-next')) {
-        page++
-    } else if (element.classList.contains('our__friends__pagination-start')) {
-        page = 1;
-    } else if (element.classList.contains('our__friends__pagination-end')) {
-        if (1280 <= window.innerWidth) {
-            page = newArrPets.length/8;
-        } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
-            page = newArrPets.length/6;
-        } else if (window.innerWidth < 768) {
-            page = newArrPets.length/3;
-        }
-    }
-
-    checkActiveBtns()
-}
-
-const checkActiveBtns = () => {
-    if(page == 6 || page == 8 || page == 16) {
-        petsPaginationBtnEnd.classList.remove('active');
-        petsPaginationBtnEnd.setAttribute('disabled', '');
-        petsPaginationBtnNext.classList.remove('active');
-        petsPaginationBtnNext.setAttribute('disabled', '');
-        petsPaginationBtnStart.classList.add('active');
-        petsPaginationBtnStart.removeAttribute('disabled');
-        petsPaginationBtnPrev.classList.add('active');
-        petsPaginationBtnPrev.removeAttribute('disabled');
-    } else if (page == 1) {
-        petsPaginationBtnStart.classList.remove('active');
-        petsPaginationBtnStart.setAttribute('disabled', '');
-        petsPaginationBtnPrev.classList.remove('active');
-        petsPaginationBtnPrev.setAttribute('disabled', '');
-        petsPaginationBtnNext.classList.add('active');
-        petsPaginationBtnNext.removeAttribute('disabled');
-        petsPaginationBtnEnd.classList.add('active');
-        petsPaginationBtnEnd.removeAttribute('disabled');
-    } else {
-        petsPaginationBtnStart.classList.add('active');
-        petsPaginationBtnStart.removeAttribute('disabled');
-        petsPaginationBtnPrev.classList.add('active');
-        petsPaginationBtnPrev.removeAttribute('disabled');
-        petsPaginationBtnNext.classList.add('active');
-        petsPaginationBtnNext.removeAttribute('disabled');
-        petsPaginationBtnEnd.classList.add('active');
-        petsPaginationBtnEnd.removeAttribute('disabled');
-    }
-}
-
 let newData = [];
 let ourFriendsCardAll = [];
 const createPetsCards = (data) => {
@@ -210,48 +126,78 @@ const changeClassElementPopUp = () => {
     blockPopUpPetCard.innerHTML = '';
 }
 
-// const moveLeft = () => {
-//     ourFriendsCardsList.classList.add('left__move');
-//     ourFriendsContentBtnLeft.removeEventListener('click', moveLeft);
-//     ourFriendsContentBtnRight.removeEventListener('click', moveRight);
-// }
+let page = 1;
+const showNumberElements = () => {
+    let arrNumberPets = [];
+    
+    if (1280 <= window.innerWidth) {
+        arrNumberPets = getSliceArrPets(8)
+    } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
+        arrNumberPets = getSliceArrPets(6)
+    } else if (window.innerWidth < 768) {
+        arrNumberPets = getSliceArrPets(3)
+    }
 
-// const moveRight = () => {
-//     ourFriendsCardsList.classList.add('right__move');
-//     ourFriendsContentBtnRight.removeEventListener('click', moveRight);
-//     ourFriendsContentBtnLeft.removeEventListener('click', moveLeft);
-// }
+    createPetsCards([...arrNumberPets])
+}
 
-// ourFriendsContentBtnRight.addEventListener('click', moveRight)
-// ourFriendsContentBtnLeft.addEventListener('click', moveLeft)
+const getSliceArrPets = (maxElem) => {
+    return newArrPets.slice(maxElem*(page-1), maxElem*page)
+}
 
-// ourFriendsCardsList.addEventListener('animationend', (event) => {
-//     let arrMoveCards = [],
-//         arrCardsHidden = []; 
+const petsPaginationBtns = document.querySelectorAll('.app__pagination__btns');
+      petsPaginationBtns.forEach((paginationBtn) => {
+            paginationBtn.addEventListener('click', (e) => {
+                changeContentPets(e.target)
+                showNumberElements()
+            })
+      })
 
-//     if (event.animationName === 'leftMove') {
-//         ourFriendsCardsList.classList.remove('left__move')
+const changeContentPets = (element) => {
+    let width = window.innerWidth,
+        pageEnd = 1280 <= width ? newArrPets.length/8 : 768 <= width && width < 1280 ? page = newArrPets.length/6 : newArrPets.length/3;
 
-//         arrMoveCards = newData.slice(0,3);
-//         arrCardsHidden = newData.slice(3, newData.length-1).sort((a,b) => Math.random() - Math.random());
-//     } else {
-//         ourFriendsCardsList.classList.remove('right__move')
+    if (element.classList.contains('our__friends__pagination-prev')) {
+        page--;
+    } else if (element.classList.contains('our__friends__pagination-next')) {
+        page++;
+    } else if (element.classList.contains('our__friends__pagination-start')) {
+        page = 1;
+    } else if (element.classList.contains('our__friends__pagination-end')) {
+        page = pageEnd;
+    }
 
-//         arrMoveCards = newData.slice(-3);
-//         arrCardsHidden = newData.slice(1, -3).sort((a,b) => Math.random() - Math.random());
-//     }
+    checkActiveBtns(pageEnd)
+}
 
-//     arrCardsHidden.push(arrCardsHidden[0])
-//     createPetsCards(arrCardsHidden.slice(0,3).concat(arrMoveCards.concat(arrCardsHidden.slice(3))))
+const paginationBtnsLeft = document.querySelectorAll('.pagination-left');
+const paginationBtnsRight = document.querySelectorAll('.pagination-right');
 
-//     ourFriendsContentBtnRight.addEventListener('click', moveRight)
-//     ourFriendsContentBtnLeft.addEventListener('click', moveLeft)
-// })
+const checkActiveBtns = (pageCheck) => {
+    if(page == pageCheck) {
+        changeElementStyleOff(paginationBtnsRight)
+        changeElementStyleOn(paginationBtnsLeft)
+    } else if (page == 1) {
+        changeElementStyleOn(paginationBtnsRight)
+        changeElementStyleOff(paginationBtnsLeft)
+    } else {
+        changeElementStyleOn(petsPaginationBtns)
+    }
+}
 
-window.addEventListener('resize', () => {
-    showNumberElements()
-})
+const changeElementStyleOn = (arrElem) => {
+    arrElem.forEach(element => {
+        element.classList.add('active');
+        element.removeAttribute('disabled'); 
+    })
+}
 
-window.addEventListener('load', () => {
-    getShelterData()
-})
+const changeElementStyleOff = (arrElem) => {
+    arrElem.forEach(element => {
+        element.classList.remove('active');
+        element.setAttribute('disabled', '');
+    })
+}
+
+window.addEventListener('resize', () => showNumberElements())
+window.addEventListener('load', () => getShelterData())
