@@ -249,22 +249,6 @@ body {
     background: #FDDCC4;
 }
 
-/* .our__friends__petscards {
-    overflow: hidden;
-    position: relative;
-}
-
-.our__friends__petscards__items {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 90px;
-    max-width: 990px;
-    position: relative;
-    transition: 1s;
-    left: -180px;
-} */
-
 .our__friends__petscards__items {
     list-style: none;
     display: flex;

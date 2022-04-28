@@ -48,16 +48,46 @@ const getShelterData = async () => {
 // Generate random
 
 const ourFriendsCardsList = document.querySelector('.our__friends__petscards__items');
+let dataSave = [];
 let newArrPets = [];
 const generateNewPets = (data) => {
-    for (let i = 48; i > newArrPets.length; ) {
-        newArrPets.push(...data.sort((a,b) => Math.random() - Math.random()).reverse())
+    dataSave = data;
+    newArrPets = [];
+    if (1280 <= window.innerWidth) {
+        for (let i = 48; i > newArrPets.length; ) {
+            newArrPets.push(...data.sort((a,b) => Math.random() - Math.random()))
+        }
+    } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
+        for (let i = 48; i > newArrPets.length; ) {
+            let arrPetsSix = getNewArrPets(6, data);
+            newArrPets.push(...arrPetsSix)
+        }
+    } else if (window.innerWidth < 768) {
+        for (let i = 48; i > newArrPets.length; ) {
+            let arrPetsThree = getNewArrPets(3, data);
+            newArrPets.push(...arrPetsThree)
+        }
     }
     showNumberElements()
 }
 
-// Create PetsCards
+const randomInteger = (min, max) => {
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
+}
 
+const getNewArrPets = (number, data) => {
+    let arrPets = []
+    for(let i = number; i > arrPets.length;) {
+        let newPet = data[randomInteger(0,7)];
+        if (!arrPets.includes(newPet)) {
+            arrPets.push(newPet)
+        }
+    }
+    return arrPets
+}
+
+// Create PetsCards
 
 let newData = [];
 let ourFriendsCardAll = [];
@@ -96,10 +126,11 @@ let page = 1;
 const showNumberElements = () => {
     let arrNumberPets = [];
     if (1280 <= window.innerWidth) {
-        page = page > newArrPets.length/8 ? 6 : page;
+        page = page > newArrPets.length/8 ? newArrPets.length/8 : page;
         arrNumberPets = getSliceArrPets(8)
+        checkActiveBtns(6)
     } else if (768 <= window.innerWidth && window.innerWidth < 1280) {
-        page = page > newArrPets.length/6 ? 8 : page;
+        page = page > newArrPets.length/6 ? newArrPets.length/6 : page;
         arrNumberPets = getSliceArrPets(6)
         checkActiveBtns(8)
     } else if (window.innerWidth < 768) {
@@ -224,5 +255,7 @@ const changeClassElementPopUp = () => {
     blockPopUpPetCard.innerHTML = '';
 }
 
-window.addEventListener('resize', () => showNumberElements())
+window.addEventListener('resize', () => {
+    generateNewPets(dataSave)
+})
 window.addEventListener('load', () => getShelterData())
