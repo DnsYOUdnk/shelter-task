@@ -99,11 +99,21 @@ body {
     background: #F6F6F6;
 }
 
+.app__background__menu.active {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(41, 41, 41, 0.6);
+    transition: 1s;
+}
+
 .header {
     background: #ffffff;
     position: sticky;
     top: 0;
-
+    z-index: 1;
 }
 
 .header__wrapper {
@@ -116,6 +126,7 @@ body {
 
 .header__logo {
     width: 186px;
+    transition: 1s;
 }
 
 .header__logo:hover {
@@ -211,11 +222,6 @@ body {
     text-align: center;
 }
 
-.our__friends__petscards__item__image img{
-    min-height: 270px;
-    border-radius: 9px 9px 0 0;
-}
-
 .our_friends__content {
     margin: 60px 0;
     width: 100%;
@@ -243,11 +249,28 @@ body {
     background: #FDDCC4;
 }
 
+/* .our__friends__petscards {
+    overflow: hidden;
+    position: relative;
+}
+
+.our__friends__petscards__items {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    max-width: 990px;
+    position: relative;
+    transition: 1s;
+    left: -180px;
+} */
+
 .our__friends__petscards__items {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 30px 40px;
+    transition: 1s;
 }
 
 .our__friends__petscards__item {
@@ -271,6 +294,11 @@ body {
     margin-bottom: 28px;
 }
 
+.our__friends__petscards__item__image img{
+    min-height: 270px;
+    border-radius: 9px 9px 0 0;
+}
+
 .our__friends__petscards__item__button {
     margin: 30px 0;
 }
@@ -284,15 +312,103 @@ body {
     color: #545454;
 }
 
-.our__friends__petscards__item__button a {
+.our__friends__petscards__item__button button {
     background: transparent;
     border: 2px solid #F1CDB3;
     padding: 13px 42px;
 }
 
-.our__friends__petscards__item:hover a {
+.our__friends__petscards__item:hover button {
     background-color: #FDDCC4;
     border: 2px solid #FDDCC4;
+}
+
+.our__friends__pop-up.active {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(41, 41, 41, 0.6);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.our__friends__pop-up__wrapper {
+    background: #FAFAFA;
+    border-radius: 9px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 900px;
+    max-height: 500px;
+    gap: 29px;
+    position: relative;
+}
+
+.our__friends__pop-up__image img {
+    width: 500px;
+    height: 500px;
+    border-radius: 9px 0 0 9px;
+}
+
+.our__friends__pop-up__description {
+    margin-top: 50px;
+    margin-right: 20px;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: #000000;
+}
+
+.our__friends__pop-up__name {
+    font-size: 35px;
+    line-height: 130%;
+}
+
+.our__friends__pop-up__breed {
+    padding: 10px 0 40px;
+    font-size: 20px;
+    line-height: 115%;
+}
+
+.our__friends__pop-up__about {
+    font-size: 15px;
+    line-height: 110%;
+    padding-bottom: 40px; 
+}
+
+.our__friends__pop-up__characteristic {    
+    padding-left: 16px;
+    font-size: 15px;
+    line-height: 110%;
+}
+
+.our__friends__pop-up__characteristic__item::marker {
+    color: #F1CDB3;
+}
+
+.our__friends__pop-up__characteristic__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.our__friends__pop-up__btn-close {
+    padding: 15px 18px;
+    border: 2px solid #F1CDB3;
+    box-sizing: border-box;
+    border-radius: 100px;
+    cursor: pointer;
+    position: absolute;
+    top: -52px;
+    right: -52px;
+}
+
+.our__friends__pop-up__btn-close.active,
+.our__friends__pop-up__btn-close:hover {    
+    border: 2px solid #FDDCC4;
+    background: #FDDCC4;
 }
 
 .our__friends__pagination {
@@ -316,6 +432,15 @@ body {
     cursor: pointer;
 }
 
+.app__pagination__btns {
+    font-family: Georgia;
+    font-size: 20px;
+    line-height: 115%;
+    font-weight: 500;
+    color: #292929;
+
+}
+
 .our__friends__pagination__counter.active {
     font-family: 'Georgia';
     font-weight: 400;
@@ -331,19 +456,9 @@ body {
     background: #FDDCC4;
 }
 
-.our__friends__pagination-start:disabled, 
-.our__friends__pagination-prev:disabled {
+.app__pagination__btns:disabled {
     border: 2px solid #CDCDCD;
-}
-
-.our__friends__pagination-start:disabled img,
-.our__friends__pagination-prev:disabled img {
-    opacity: 0.4;
-}
-
-.our__friends__pagination-start,
-.our__friends__pagination-prev {
-    transform: rotate(180deg);
+    color: #CDCDCD;
 }
 
 .footer {
