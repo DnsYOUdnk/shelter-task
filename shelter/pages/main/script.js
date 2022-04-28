@@ -9,14 +9,17 @@ const ourFriendsContentBtnLeft = document.querySelector('.our_friends__content__
 const ourFriendsContentBtnRight = document.querySelector('.our_friends__content__btn-right');
 
 const changeClassElement = () => {
-    hamburger.classList.toggle('open');
-    navMenu.classList.toggle('openMenu');
-    backgroundMenu.classList.toggle('active');
 
     if(navMenu.classList.contains('openMenu')) {
+        hamburger.classList.add('open');
+        navMenu.classList.add('openMenu');
+        backgroundMenu.classList.add('active');
         document.body.style.overflowY = 'hidden';
         navMenu.prepend(logo)
     } else {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('openMenu');
+        backgroundMenu.classList.remove('active');
         document.body.style.overflowY = '';
         headerWrapper.prepend(logo)
     }
